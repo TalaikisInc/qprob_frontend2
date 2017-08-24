@@ -8,9 +8,6 @@
             <ad-component :type="0"></ad-component>
 
           <div class="tr-section bg-transparent">
-            <div class="section-title">
-              <h1><span><a href="#"><!-- Section title --></a></span></h1>
-            </div>
             <div class="row" v-for="chunk in chunkPosts">
               <div class="col-md-6 medium-post" v-for="post in chunk">
                 <div class="tr-post">
@@ -32,7 +29,7 @@
                           </ul>
                         </div>
                         <h2 class="entry-title">
-                        <a :href="baseUrl+post.slug+'/'">{{ post.title }}</a> 
+                        <a :href="baseUrl+post.slug+'/'">{{ post.title }}</a>&nbsp;
                         <div v-bind:class="[(post.sentiment >= 0) ? 'sentiment-pos' : 'sentiment-neg']" v-if="post.sentiment">[{{ post.sentiment }}]</div></h2>
                         <p c-if="post.summary">{{ post.summary }}</p>
                   </div>
@@ -74,11 +71,12 @@ export default {
     return {
       posts: [],
       baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl
+      imgBaseUrl: process.env.imgBaseUrl,
+      title: process.env.siteName
     }
   },
   asyncData ({ req, params }) {
-    return axios.get('/posts/0/')
+    return axios.get('/posts/' + (Number(params.page) || '0') + '/')
       .then((response) => {
         return { posts: response.data }
       })
@@ -97,6 +95,11 @@ export default {
     calcPages () {
       const pages = Math.floor(this.posts[0].total_posts / 20)
       return pages <= 250 ? pages : 250
+    }
+  },
+  head () {
+    return {
+      title: Number(this.$route.params.page) ? 'Page ' + Number(this.$route.params.page) + ' | ' + this.title : this.title
     }
   }
 }

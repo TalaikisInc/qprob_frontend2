@@ -17,7 +17,7 @@
     "axios": "^0.16.2",
     "lru-cache": "^4.1.1",
     "moment": "^2.18.1",
-    "nuxt": "^1.0.0-rc3",
+    "nuxt": "^1.0.0-rc6",
     "vue-disqus": "^2.0.3",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.0.4"

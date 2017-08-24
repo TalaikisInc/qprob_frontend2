@@ -5,12 +5,10 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="tr-content">
-            <ad-component :type="0"></ad-component>
+            <ad-component></ad-component>
 
             <div class="tr-section bg-transparent">
-            <div class="section-title">
-              <h1><span><a href="#"><!-- Section title --></a></span></h1>
-            </div>
+
             <div class="row">
                 <div class="tr-post">
                   <div class="entry-header">
@@ -21,42 +19,49 @@
                   </div>
                   <div class="post-content">
                     <div v-bind:class="[(post.image) ? 'crop' : 'crop-no-img']">
-                          <a :href="baseUrl+keyword+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
+                          <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
                           <img class="img-responsive circle-img" :src="imgBaseUrl+post.category_id.Thumbnail" :alt="post.category_id.Title"></a>
                         </div>
                         <div class="entry-meta">
                           <ul>
-                            <li>By <a :href="baseUrl+keyword+'/source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
+                            <li>By <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
                             <li>{{ post.date | formatDate }}</li>
                           </ul>
                         </div>
                         <h2 class="entry-title">
                         <a :href="baseUrl+post.slug+'/'">{{ post.title }}</a>&nbsp;
                         <div v-bind:class="[(post.sentiment >= 0) ? 'sentiment-pos' : 'sentiment-neg']" v-if="post.sentiment">[{{ post.sentiment }}]</div></h2>
-                        <p><span v-for="tag in tags" :key="tag.id"><a :href="baseUrl + 'tag/' + tag.slug + '/'">{{ tag.title }}</a> | </span></p>
-                        <hr />
+                        <div class="post-inner-image">
+                          <p><span v-for="tag in tags" :key="tag.id"><a :href="baseUrl + 'tag/' + tag.slug + '/'" class="card-link">{{ tag.title }}</a> | </span></p>
+                        </div>
                         <div v-if="post.status == 0">
                           <p>{{ post.summary }}</p>
                         </div>
                         <div v-else>
                           <span v-html="post.content"></span>
                         </div>
-                        <social-sharing :url="baseUrl + post.slug + '/'" :title="post.title"></social-sharing>
+                        <a :href="post.url"><button class="btn btn-primary pull-right">Read more...</button></a>
+                        <div class="post-inner-image">
+                          <social-sharing :url="baseUrl + post.slug + '/'" :title="post.title"></social-sharing>
+                        </div>
+                        <div class="post-inner-image" v-if="post.wordcloud">
+                          <img :src="imgBaseUrl+post.wordcloud" class="img-responsive" alt="Article analysis">
+                        </div>
                         <div class="comment-list">
                           <disqus :shortname="disqusID" :identifier="post.title" :url="baseUrl + post.slug + '/'"></disqus>
                         </div>
                   </div>
                 </div>
             </div>
-            <paginator-component v-once :pages="calcPages"></paginator-component>            
+            <!-- paginator -->
           </div>
         </div>
       </div>
 
       <div class="col-sm-4 tr-sidebar">
         <div>
-          <ad-component :type="1"></ad-component>
-          <div class="tr-section tr-widget tr-ad ad-before">
+          <ad-component></ad-component>
+          <div class="tr-section tr-widget tr-ad">
             <popular-posts></popular-posts>
           </div>
         </div>
@@ -85,15 +90,19 @@ export default {
       tags: [],
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
-      disqusID: process.env.disqusID
+      disqusID: process.env.disqusID,
+      title: process.env.siteName
     }
   },
-  asyncData ({ req, params }) {
+  asyncData ({ req, params, error }) {
     return axios.all([
       axios.get('/post/' + params.postSlug + '/'), axios.get('/post_tags/' + params.postSlug + '/'), axios.get('/post_hit/' + params.postSlug + '/')])
       .then(axios.spread(function (posts, tags, hit) {
         return { post: posts.data[0], tags: tags.data }
       }))
+      .catch((e) => {
+        error({ statusCode: 404, message: 'This post not found.' })
+      })
   },
   components: {
     'header-component': Header,
@@ -103,6 +112,11 @@ export default {
     'social-sharing': SocialSharing,
     'ad-component': Ads,
     'disqus': VueDisqus
+  },
+  head () {
+    return {
+      title: this.post.title + ' | ' + this.title
+    }
   }
 }
 </script>

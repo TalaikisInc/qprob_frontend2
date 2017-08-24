@@ -6,19 +6,25 @@ const popular = process.env.keyword + '/popular/'
 
 module.exports = {
   head: {
-    title: 'nuxt',
+    title: 'QProb',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ],
+    script: [
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
+      { src: '/js/jquery.min.js' },
+      { src: '/js/bootstrap.min.js' },
+      { src: '/js/main.js' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   css: [
-    '@/assets/css/main.css',
-    '@/assets/css/bootstrap.min.css',
-    '@/assets/css/font-awesome.min.css'
+    '@/static/css/main.css',
+    '@/static/css/bootstrap.min.css',
+    '@/static/css/font-awesome.min.css'
   ],
   plugins: [
     '~plugins/filters.js',
@@ -37,27 +43,29 @@ module.exports = {
     keyword: 'quant_finance',
     twHandle: 'QProbcom',
     fbHandle: 'QProb-1328788263849733',
-    disqusID: 'QProb'
+    disqusID: 'QProb',
+    adClient: 'ca-pub-2578395398126606',
+    adSlot: '2747813439'
   },
   router: {
     extendRoutes (routes, resolve) {
       routes.push(
         { path: '', component: resolve(__dirname, 'pages', 'Posts.vue') },
-        { path: '/page/:page/', component: resolve(__dirname, 'pages', 'PostsByPage.vue') },
+        { path: '/page/:page/', component: resolve(__dirname, 'pages', 'Posts.vue') },
         { path: '/:postSlug/', component: resolve(__dirname, 'pages', 'Post.vue') },
         { path: '/tag/:tagSlug/', component: resolve(__dirname, 'pages', 'PostsByTag.vue') },
         { path: '/source/:catSlug/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
-        { path: '/tag/:tagSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByTagPaged.vue') },
-        { path: '/source/:catSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByCatPaged.vue') },
+        { path: '/tag/:tagSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByTag.vue') },
+        { path: '/source/:catSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
         { path: popular, component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
-        { path: popular + 'page/:page/', component: resolve(__dirname, 'pages', 'PopularPostsPaged.vue') },
+        { path: popular + 'page/:page/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: categories, component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags, component: resolve(__dirname, 'pages', 'Tags.vue') },
-        { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'CategoriesPaged.vue') },
-        { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'TagsPaged.vue') },
+        { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'Categories.vue') },
+        { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'Tags.vue') },
         { path: sentiment, component: resolve(__dirname, 'pages', 'Sentiment.vue') },
         { path: today, component: resolve(__dirname, 'pages', 'Today.vue') },
-        { path: today + 'page/:page/', component: resolve(__dirname, 'pages', 'TodayPaged.vue') },
+        { path: today + 'page/:page/', component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: '*', component: resolve(__dirname, 'pages', 'Error404.vue') }
       )
     }
