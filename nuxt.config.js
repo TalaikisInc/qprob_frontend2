@@ -1,8 +1,9 @@
-const categories = process.env.keyword + '/categories/'
-const tags = process.env.keyword + '/tags/'
-const sentiment = process.env.keyword + '/sentiment/'
-const today = process.env.keyword + '/today/'
-const popular = process.env.keyword + '/popular/'
+require('dotenv').config()
+const categories = process.env.KEYWORD + '/categories/'
+const tags = process.env.KEYWORD + '/tags/'
+const sentiment = process.env.KEYWORD + '/sentiment/'
+const today = process.env.KEYWORD + '/today/'
+const popular = process.env.KEYWORD + '/popular/'
 
 module.exports = {
   head: {
@@ -15,7 +16,8 @@ module.exports = {
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
       { src: '/js/jquery.min.js' },
       { src: '/js/bootstrap.min.js' },
-      { src: '/js/main.js' }
+      { src: '/js/main.js' },
+      { src: '/js/vue-social-sharing.min.js' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -34,13 +36,12 @@ module.exports = {
     ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 12 }],
   ],
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000/',
+    baseUrl: 'http://localhost:3000/',
     logoAlt: '',
     siteName: 'Trading News',
     imgBaseUrl: 'https://qprob.com/',
     apiUrl: 'https://api.qprob.com/v2.0',
     logo: 'static/images/logo/stock_market.png',
-    keyword: 'quant_finance',
     twHandle: 'QProbcom',
     fbHandle: 'QProb-1328788263849733',
     disqusID: 'QProb',
@@ -57,13 +58,13 @@ module.exports = {
         { path: '/source/:catSlug/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
         { path: '/tag/:tagSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByTag.vue') },
         { path: '/source/:catSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
-        { path: popular, component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
+        { path: '/quant_finance/popular/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: popular + 'page/:page/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: categories, component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags, component: resolve(__dirname, 'pages', 'Tags.vue') },
         { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'Tags.vue') },
-        { path: sentiment, component: resolve(__dirname, 'pages', 'Sentiment.vue') },
+        { path: '/quant_finance/sentiment/', component: resolve(__dirname, 'pages', 'Sentiment.vue') },
         { path: today, component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: today + 'page/:page/', component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: '*', component: resolve(__dirname, 'pages', 'Error404.vue') }

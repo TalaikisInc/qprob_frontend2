@@ -76,7 +76,6 @@
 import axios from 'axios'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
-import Paginator from '../components/Paginator.vue'
 import Popular from '../components/PopularSidebar.vue'
 import SocialSharing from '../components/SocialSharing.vue'
 import Ads from '../components/Ads.vue'
@@ -108,7 +107,6 @@ export default {
     'header-component': Header,
     'footer-component': Footer,
     'popular-posts': Popular,
-    'paginator-component': Paginator,
     'social-sharing': SocialSharing,
     'ad-component': Ads,
     'disqus': VueDisqus

@@ -64,7 +64,7 @@ export default {
       baseUrl: process.env.baseUrl,
       logoAlt: process.env.logoAlt,
       logo: process.env.logo,
-      keyword: process.env.keyword,
+      keyword: process.env.KEYWORD,
       imgBaseUrl: process.env.imgBaseUrl,
       twHandle: process.env.twHandle,
       siteName: process.env.siteName,

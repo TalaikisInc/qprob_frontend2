@@ -76,7 +76,7 @@ export default {
       logoAlt: process.env.logoAlt,
       logo: process.env.logo,
       imgBaseUrl: process.env.imgBaseUrl,
-      keyword: process.env.keyword
+      keyword: process.env.KEYWORD
     }
   },
   methods: {

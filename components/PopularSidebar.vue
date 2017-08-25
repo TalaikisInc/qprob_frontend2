@@ -37,7 +37,7 @@ export default {
     return {
       posts: this.posts,
       baseUrl: process.env.baseUrl,
-      keyword: process.env.keyword
+      keyword: process.env.KEYWORD
     }
   },
   methods: {

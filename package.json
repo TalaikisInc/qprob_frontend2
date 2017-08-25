@@ -15,12 +15,16 @@
   "dependencies": {
     "@nuxtjs/component-cache": "^1.1.0",
     "axios": "^0.16.2",
+    "chart.js": "^2.6.0",
+    "dotenv": "^4.0.0",
     "lru-cache": "^4.1.1",
     "moment": "^2.18.1",
     "nuxt": "^1.0.0-rc6",
+    "vue-chartjs": "^2.8.2",
     "vue-disqus": "^2.0.3",
     "vue-html-loader": "^1.2.4",
-    "vue-loader": "^13.0.4"
+    "vue-loader": "^13.0.4",
+    "vue-social-sharing": "^2.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

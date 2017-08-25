@@ -7,7 +7,7 @@
 </template>
 
 <script>
-// from https://github.com/darrynten/vue-adsense
+// Component from https://github.com/darrynten/vue-adsense
 export default {
   props: {
     adClient: {
