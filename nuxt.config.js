@@ -1,9 +1,9 @@
 require('dotenv').config()
-const categories = process.env.KEYWORD + '/categories/'
-const tags = process.env.KEYWORD + '/tags/'
-const sentiment = process.env.KEYWORD + '/sentiment/'
-const today = process.env.KEYWORD + '/today/'
-const popular = process.env.KEYWORD + '/popular/'
+const categories = '/' + process.env.KEYWORD + '/categories/'
+const tags = '/' + process.env.KEYWORD + '/tags/'
+const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
+const today = '/' + process.env.KEYWORD + '/today/'
+const popular = '/' + process.env.KEYWORD + '/popular/'
 
 module.exports = {
   head: {
@@ -58,13 +58,13 @@ module.exports = {
         { path: '/source/:catSlug/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
         { path: '/tag/:tagSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByTag.vue') },
         { path: '/source/:catSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
-        { path: '/quant_finance/popular/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
+        { path: popular, component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: popular + 'page/:page/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: categories, component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags, component: resolve(__dirname, 'pages', 'Tags.vue') },
         { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'Tags.vue') },
-        { path: '/quant_finance/sentiment/', component: resolve(__dirname, 'pages', 'Sentiment.vue') },
+        { path: sentiment + '/sentiment/', component: resolve(__dirname, 'pages', 'Sentiment.vue') },
         { path: today, component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: today + 'page/:page/', component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: '*', component: resolve(__dirname, 'pages', 'Error404.vue') }
