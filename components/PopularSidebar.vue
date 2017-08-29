@@ -20,7 +20,7 @@
 				      More...
 				    </div>
 			      <h2 class="entry-title">
-				      <a :href="baseUrl+keyword+'/popular/'">All popular posts</a>
+				      <a :href="baseUrl + keyword + '/popular/'">All popular posts</a>
 				    </h2>
 			    </div>
 		    </li>

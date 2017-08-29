@@ -37,7 +37,7 @@
                 </div>
               </div>
             </div>
-            <paginator-component v-once :pages="calcPages"></paginator-component>            
+            <paginator-component v-once :pages="calcPages" :source="type" value=""></paginator-component>            
           </div>
         </div>
       </div>
@@ -74,7 +74,8 @@ export default {
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
       title: process.env.siteName,
-      page: null
+      page: null,
+      type: 2
     }
   },
   asyncData ({ req, params }) {

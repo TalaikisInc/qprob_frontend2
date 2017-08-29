@@ -10,13 +10,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a :href="baseUrl"><img class="img-responsive header-logo" :src="imgBaseUrl + logo" :alt="logoAlt"></a>
+                        <a :href="baseUrl"><img class="img-responsive header-logo" src="~/assets/logo/stock_market.png" :alt="logoAlt"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <span class="discover"><!-- Discover --></span>
                         <ul class="nav navbar-nav">
-                            <li><a :href="baseUrl + keyword + '/today/'"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today</a></li>
+                            <li><a :href="baseUrl + 'today/'"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today</a></li>
                             <li v-for="cat in categories">
                                 <a :href="baseUrl+'source/'+cat.slug+'/'" :alt="cat.title">
                                 <div v-if="cat.thumbnail">

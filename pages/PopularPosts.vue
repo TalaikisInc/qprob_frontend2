@@ -38,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <paginator-component v-once :pages="calcPages"></paginator-component>            
+            <paginator-component v-once :pages="calcPages" :soure="type" value=""></paginator-component>            
           </div>
         </div>
       </div>
@@ -75,11 +75,13 @@ export default {
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
       title: process.env.siteName,
-      page: null
+      page: null,
+      type: 3
     }
   },
   asyncData ({ req, params }) {
-    return axios.get('/popular_posts/' + (Number(params.page) || '0') + '/')
+    return axios.get('/most_popular/' + '/')
+    //  + (Number(params.page) || '0')
       .then((response) => {
         return { posts: response.data, page: params.page }
       })
