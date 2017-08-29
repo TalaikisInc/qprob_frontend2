@@ -5,9 +5,9 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="tr-content">
-            <ad-component :type="0"></ad-component>
-
+          <ad-component :type="0"></ad-component>
           <div class="tr-section bg-transparent">
+            <h1>{{ title }}<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
               <div class="col-md-6 medium-post" v-for="post in chunk">
                 <div class="tr-post">
@@ -36,14 +36,14 @@
                 </div>
               </div>
             </div>
-            <paginator-component v-once :pages="calcPages"></paginator-component>            
+            <paginator-component v-once :pages="calcPages"></paginator-component>
           </div>
         </div>
       </div>
 
       <div class="col-sm-4 tr-sidebar">
         <div>
-          <ad-component :type="1"></ad-component>
+          <ad-component :type="0"></ad-component>
           <div class="tr-section tr-widget tr-ad ad-before">
             <popular-posts></popular-posts>
           </div>
@@ -72,13 +72,14 @@ export default {
       posts: [],
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName
+      title: process.env.siteName,
+      page: null
     }
   },
   asyncData ({ req, params }) {
     return axios.get('/posts/' + (Number(params.page) || '0') + '/')
       .then((response) => {
-        return { posts: response.data }
+        return { posts: response.data, page: params.page }
       })
   },
   components: {

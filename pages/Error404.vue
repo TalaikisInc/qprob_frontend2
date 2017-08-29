@@ -9,7 +9,7 @@
                     </div>
                     <div class="not-found">
                         <h1>404</h1>
-                        <p>Page Not Found</p>
+                        <p>Page not found.</p>
                         <a :href="baseUrl">Back to Home</a>
                     </div>
                 </div>
@@ -24,7 +24,7 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
-  name: 'errorComp',
+  name: 'errorPage',
   data () {
     return {
       baseUrl: process.env.baseUrl,

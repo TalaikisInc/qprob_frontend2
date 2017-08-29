@@ -8,6 +8,7 @@
             <ad-component :type="0"></ad-component>
 
           <div class="tr-section bg-transparent">
+            <h1>{{ tag | capFirst }}<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
               <div class="col-md-6 medium-post" v-for="post in chunk">
                 <div class="tr-post">
@@ -19,12 +20,12 @@
                   </div>
                   <div class="post-content">
                     <div v-bind:class="[(post.image) ? 'crop' : 'crop-no-img']">
-                          <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
+                          <a :href="baseUrl+'source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
                           <img class="img-responsive circle-img" :src="imgBaseUrl+post.category_id.Thumbnail" :alt="post.category_id.Title"></a>
                         </div>
                         <div class="entry-meta">
                           <ul>
-                            <li>By <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
+                            <li>By <a :href="baseUrl+'source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
                             <li>{{ post.date | formatDate }}</li>
                           </ul>
                         </div>
@@ -36,7 +37,7 @@
                 </div>
               </div>
             </div>
-            <paginator-component v-once :pages="calcPages"></paginator-component>            
+            <paginator-component :pages="calcPages" :source="type" :value="tag"></paginator-component>            
           </div>
         </div>
       </div>
@@ -72,13 +73,16 @@ export default {
       posts: [],
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName
+      title: process.env.siteName,
+      tag: null,
+      page: null,
+      type: 0
     }
   },
   asyncData ({ req, params }) {
     return axios.get('/tag/' + params.tagSlug + '/' + (Number(params.page) || '0') + '/')
       .then((response) => {
-        return { posts: response.data }
+        return { posts: response.data, tag: params.tagSlug, page: params.page }
       })
   },
   components: {

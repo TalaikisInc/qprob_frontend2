@@ -19,12 +19,12 @@
                   </div>
                   <div class="post-content">
                     <div v-bind:class="[(post.image) ? 'crop' : 'crop-no-img']">
-                          <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
+                          <a :href="baseUrl+'source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
                           <img class="img-responsive circle-img" :src="imgBaseUrl+post.category_id.Thumbnail" :alt="post.category_id.Title"></a>
                         </div>
                         <div class="entry-meta">
                           <ul>
-                            <li>By <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
+                            <li>By <a :href="baseUrl+'source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
                             <li>{{ post.date | formatDate }}</li>
                           </ul>
                         </div>
@@ -39,6 +39,9 @@
                         </div>
                         <div v-else>
                           <span v-html="post.content"></span>
+                        </div>
+                        <div class="post-inner-image">
+                          <ad-component></ad-component>
                         </div>
                         <a :href="post.url"><button class="btn btn-primary pull-right">Read more...</button></a>
                         <div class="post-inner-image">

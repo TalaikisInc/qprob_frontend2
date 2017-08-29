@@ -4,6 +4,8 @@ const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
 const today = '/' + process.env.KEYWORD + '/today/'
 const popular = '/' + process.env.KEYWORD + '/popular/'
+const api_url = 'https://api.' + process.env.WEB_HOST + '/v2.0'
+const img_url = 'https://' + process.env.WEB_HOST + '/'
 
 module.exports = {
   head: {
@@ -38,13 +40,13 @@ module.exports = {
   env: {
     baseUrl: 'http://localhost:3000/',
     logoAlt: '',
-    siteName: 'Trading News',
-    imgBaseUrl: 'https://qprob.com/',
-    apiUrl: 'https://api.qprob.com/v2.0',
+    siteName: process.env.SITE_NAME,
+    imgBaseUrl: img_url,
+    apiUrl: api_url,
     logo: 'static/images/logo/stock_market.png',
-    twHandle: 'QProbcom',
-    fbHandle: 'QProb-1328788263849733',
-    disqusID: 'QProb',
+    twHandle: process.env.TWITTER_HANDLE,
+    fbHandle: process.env.FACEBOOK_HANDLE,
+    disqusID: process.env.SHORT_SITE_NAME,
     adClient: 'ca-pub-2578395398126606',
     adSlot: '2747813439'
   },
@@ -64,7 +66,7 @@ module.exports = {
         { path: tags, component: resolve(__dirname, 'pages', 'Tags.vue') },
         { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'Tags.vue') },
-        { path: sentiment + '/sentiment/', component: resolve(__dirname, 'pages', 'Sentiment.vue') },
+        { path: sentiment, component: resolve(__dirname, 'pages', 'Sentiment.vue') },
         { path: today, component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: today + 'page/:page/', component: resolve(__dirname, 'pages', 'Today.vue') },
         { path: '*', component: resolve(__dirname, 'pages', 'Error404.vue') }

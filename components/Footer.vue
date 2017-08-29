@@ -38,8 +38,9 @@
                     <div class="footer-logo">
                         <a :href="baseUrl"><img class="img-responsive" :src="imgBaseUrl + logo" :alt="logoAlt"></a>
                     </div>
-                    <p><a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a> 
-                    <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a></p>
+                    <p><a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a>&nbsp;
+                    <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a>&nbsp;
+                    <a :href="rssUrl"><i class="fa fa-rss"></i></a></p>
                     <p>World news summarized.</p>
                     <address>
                         <p>&copy; 2017 <a :href="baseUrl">{{ siteName }}</a> | 
@@ -62,6 +63,7 @@ export default {
       tags: this.tags,
       categories: this.categories,
       baseUrl: process.env.baseUrl,
+      rssUrl: process.env.apiUrl.slice(0, -4) + 'feed/',
       logoAlt: process.env.logoAlt,
       logo: process.env.logo,
       keyword: process.env.KEYWORD,

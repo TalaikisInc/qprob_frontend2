@@ -8,6 +8,7 @@
             <ad-component :type="0"></ad-component>
 
           <div class="tr-section bg-transparent">
+            <h1>Popular<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
               <div class="col-md-6 medium-post" v-for="post in chunk">
                 <div class="tr-post">
@@ -19,13 +20,14 @@
                   </div>
                   <div class="post-content">
                     <div v-bind:class="[(post.image) ? 'crop' : 'crop-no-img']">
-                          <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
+                          <a :href="baseUrl+'source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
                           <img class="img-responsive circle-img" :src="imgBaseUrl+post.category_id.Thumbnail" :alt="post.category_id.Title"></a>
                         </div>
                         <div class="entry-meta">
                           <ul>
-                            <li>By <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
+                            <li>By <a :href="baseUrl+'source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
                             <li>{{ post.date | formatDate }}</li>
+                            <li>Hits: {{ post.hits }}</li>
                           </ul>
                         </div>
                         <h2 class="entry-title">
@@ -45,7 +47,7 @@
         <div>
           <ad-component :type="1"></ad-component>
           <div class="tr-section tr-widget tr-ad ad-before">
-            <popular-posts></popular-posts>
+            <recent-posts></recent-posts>
           </div>
         </div>
       </div>
@@ -61,7 +63,7 @@ import chunk from '../plugins/chunk'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import Paginator from '../components/Paginator.vue'
-import Popular from '../components/PopularSidebar.vue'
+import Recent from '../components/RecentSidebar.vue'
 import Ads from '../components/Ads.vue'
 
 import axios from 'axios'
@@ -72,19 +74,20 @@ export default {
       posts: [],
       baseUrl: process.env.baseUrl,
       imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName
+      title: process.env.siteName,
+      page: null
     }
   },
   asyncData ({ req, params }) {
     return axios.get('/popular_posts/' + (Number(params.page) || '0') + '/')
       .then((response) => {
-        return { posts: response.data }
+        return { posts: response.data, page: params.page }
       })
   },
   components: {
     'header-component': Header,
     'footer-component': Footer,
-    'popular-posts': Popular,
+    'recent-posts': Recent,
     'paginator-component': Paginator,
     'ad-component': Ads
   },

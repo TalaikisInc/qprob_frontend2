@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-content">
     <adsense
       :ad-client="adClient"
       :ad-slot="adSlot"
