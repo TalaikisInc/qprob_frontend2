@@ -24,12 +24,16 @@
 				    </h2>
 			    </div>
 		    </li>
+        <li class="tr-post">
+        <!-- <calendar-component></calendar-component> -->
+        </li>
 	  </ul>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+// import Calendar from './Calendar.vue'
 
 export default {
   name: 'popularComp',
@@ -42,12 +46,15 @@ export default {
   },
   methods: {
     fetchPosts () {
-      axios.get('/most_popular/').then(response => {
+      axios.get('/most_popular/0/').then(response => {
         this.posts = response.data
       }).catch(e => {
         console.log(e)
       })
     }
+  },
+  components: {
+    // 'calendar-component': Calendar
   },
   mounted () {
     this.fetchPosts()

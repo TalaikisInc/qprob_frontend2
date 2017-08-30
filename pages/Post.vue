@@ -40,9 +40,6 @@
                         <div v-else>
                           <span v-html="post.content"></span>
                         </div>
-                        <div class="post-inner-image">
-                          <ad-component></ad-component>
-                        </div>
                         <a :href="post.url"><button class="btn btn-primary pull-right">Read more...</button></a>
                         <div class="post-inner-image">
                           <social-sharing :url="baseUrl + post.slug + '/'" :title="post.title"></social-sharing>

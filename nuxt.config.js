@@ -1,5 +1,4 @@
 require('dotenv').config()
-const categories = '/' + process.env.KEYWORD + '/categories/'
 const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
 const popular = '/' + process.env.KEYWORD + '/popular/'
@@ -60,9 +59,7 @@ module.exports = {
         { path: '/source/:catSlug/page/:page/', component: resolve(__dirname, 'pages', 'PostsByCat.vue') },
         { path: popular, component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
         { path: popular + 'page/:page/', component: resolve(__dirname, 'pages', 'PopularPosts.vue') },
-        { path: categories, component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags, component: resolve(__dirname, 'pages', 'Tags.vue') },
-        { path: categories + 'page/:page/', component: resolve(__dirname, 'pages', 'Categories.vue') },
         { path: tags + 'page/:page/', component: resolve(__dirname, 'pages', 'Tags.vue') },
         { path: sentiment, component: resolve(__dirname, 'pages', 'Sentiment.vue') },
         { path: '/today/', component: resolve(__dirname, 'pages', 'Today.vue') },
@@ -75,7 +72,7 @@ module.exports = {
   build: {
     analyze: true,
     extractCSS: true,
-    vendor: ['axios'],
+    vendor: ['axios', 'moment'],
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({

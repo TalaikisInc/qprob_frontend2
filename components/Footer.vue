@@ -3,7 +3,6 @@
         <div class="footer-menu">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li><a :href="baseUrl+keyword+'/categories/'">Authors</a></li>
                     <li><a :href="baseUrl+keyword+'/tags/'">Tags</a></li>
                     <li><a :href="baseUrl+keyword+'/sentiment/'">Sentiment</a></li>
                 </ul> 
@@ -14,7 +13,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="widget widget-menu-3">
-                            <h2>Categories</h2> 
+                            <h2>Top authors</h2> 
                             <ul>
                                 <li v-for="cat in categories"><a :href="baseUrl+'source/'+cat.slug+'/'">{{ cat.title }} [{{ cat.post_count }}]</a></li>
                             </ul>
@@ -22,7 +21,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="widget widget-menu-4">
-                            <h2>Tags</h2> 
+                            <h2>Top tags</h2> 
                             <ul>
                                 <li v-for="tag in tags"><a :href="baseUrl+'tag/'+tag.slug+'/'">{{ tag.title }} [{{ tag.post_count }}]</a></li>
                                 <li><a :href="baseUrl+keyword+'tags/'"><strong>All post tags</strong></a></li>

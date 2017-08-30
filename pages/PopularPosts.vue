@@ -38,7 +38,7 @@
                 </div>
               </div>
             </div>
-            <paginator-component v-once :pages="calcPages" :soure="type" value=""></paginator-component>            
+            <paginator-component v-once :pages="calcPages" :soure="type" value="" :active="page"></paginator-component>            
           </div>
         </div>
       </div>
@@ -80,10 +80,9 @@ export default {
     }
   },
   asyncData ({ req, params }) {
-    return axios.get('/most_popular/' + '/')
-    //  + (Number(params.page) || '0')
+    return axios.get('/most_popular/' + (Number(params.page) || '0') + '/')
       .then((response) => {
-        return { posts: response.data, page: params.page }
+        return { posts: response.data, page: Number(params.page) || 0 }
       })
   },
   components: {
@@ -98,7 +97,7 @@ export default {
       return chunk(this.posts, 2)
     },
     calcPages () {
-      const pages = Math.floor(this.posts[0].total_posts / 20)
+      const pages = Math.floor(this.posts[0].total_posts / 20) + 1
       return pages <= 250 ? pages : 250
     }
   },

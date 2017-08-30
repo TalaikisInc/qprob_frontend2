@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="tr-content">
-            <ad-component :type="0"></ad-component>
+            <ad-component></ad-component>
 
           <div class="tr-section bg-transparent">
             <h1>{{ tag | capFirst }}<span v-if="page > 0">, page {{ page }}</span></h1>
@@ -37,14 +37,14 @@
                 </div>
               </div>
             </div>
-            <paginator-component :pages="calcPages" :source="type" :value="tag"></paginator-component>            
+            <paginator-component :pages="calcPages" :source="type" :value="tag" :active="page"></paginator-component>            
           </div>
         </div>
       </div>
 
       <div class="col-sm-4 tr-sidebar">
         <div>
-          <ad-component :type="1"></ad-component>
+          <ad-component></ad-component>
           <div class="tr-section tr-widget tr-ad ad-before">
             <popular-posts></popular-posts>
           </div>
@@ -82,7 +82,7 @@ export default {
   asyncData ({ req, params }) {
     return axios.get('/tag/' + params.tagSlug + '/' + (Number(params.page) || '0') + '/')
       .then((response) => {
-        return { posts: response.data, tag: params.tagSlug, page: params.page }
+        return { posts: response.data, tag: params.tagSlug, page: Number(params.page) || 0 }
       })
   },
   components: {
@@ -97,7 +97,7 @@ export default {
       return chunk(this.posts, 2)
     },
     calcPages () {
-      const pages = Math.floor(this.posts[0].total_posts / 20)
+      const pages = Math.floor(this.posts[0].total_posts / 20) + 1
       return pages <= 250 ? pages : 250
     }
   },

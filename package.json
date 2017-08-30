@@ -24,6 +24,7 @@
     "vue-disqus": "^2.0.3",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.0.4",
+    "vue-ls": "^2.3.0",
     "vue-social-sharing": "^2.2.3"
   },
   "devDependencies": {

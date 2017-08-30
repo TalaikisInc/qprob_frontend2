@@ -15,10 +15,10 @@
 
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <span class="discover"><!-- Discover --></span>
-                        <ul class="nav navbar-nav">
+                        <ul class="navbar-nav">
                             <li><a :href="baseUrl + 'today/'"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today</a></li>
                             <li v-for="cat in categories">
-                                <a :href="baseUrl+'source/'+cat.slug+'/'" :alt="cat.title">
+                                <a :href="baseUrl+'source/'+cat.slug+'/'" :title="cat.title">
                                 <div v-if="cat.thumbnail">
                                     <img class="img-responsive img-circle menuCat" :src="imgBaseUrl+cat.thumbnail" />
                                 </div>
@@ -74,7 +74,6 @@ export default {
       categories: this.categories,
       baseUrl: process.env.baseUrl,
       logoAlt: process.env.logoAlt,
-      logo: process.env.logo,
       imgBaseUrl: process.env.imgBaseUrl,
       keyword: process.env.KEYWORD
     }
@@ -83,8 +82,6 @@ export default {
     fetchData () {
       axios.get('/all_cats/').then(response => {
         this.categories = response.data
-      }).catch(e => {
-        console.log(e)
       })
     }
   },
@@ -93,5 +90,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
