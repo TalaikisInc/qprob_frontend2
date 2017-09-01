@@ -5,7 +5,7 @@ const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
 const popular = '/' + process.env.KEYWORD + '/popular/'
 const api_url = 'https://api.' + process.env.WEB_HOST + '/v2.0'
-const img_url = 'https://' + process.env.WEB_HOST + '/'
+const baseUrl = 'https://' + process.env.WEB_HOST + '/'
 
 module.exports = {
   head: {
@@ -50,10 +50,10 @@ module.exports = {
     '@nuxtjs/manifest'
   ],
   env: {
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: baseUrl,
     logoAlt: process.env.SITE_NAME,
     siteName: process.env.SITE_NAME,
-    imgBaseUrl: img_url,
+    imgBaseUrl: baseUrl,
     apiUrl: api_url,
     twHandle: process.env.TWITTER_HANDLE,
     fbHandle: process.env.FACEBOOK_HANDLE,
