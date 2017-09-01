@@ -26,6 +26,7 @@
 		    </li>
         <li class="tr-post">
         <!-- <calendar-component></calendar-component> -->
+        <a href="appUrl"><img :src="imgBaseUrl + 'uploads/screenshots/' + siteFolder + '.png'" alt="Get our app"></a>
         </li>
 	  </ul>
 </div>
@@ -41,7 +42,10 @@ export default {
     return {
       posts: this.posts,
       baseUrl: process.env.baseUrl,
-      keyword: process.env.KEYWORD
+      imgBaseUrl: process.env.imgBaseUrl,
+      keyword: process.env.KEYWORD,
+      siteFolder: process.env.SITE_FOLDER,
+      appUrl: 'https://play.google.com/store/apps/details?id=talaikis.qprob.' + process.env.SITE_FOLDER
     }
   },
   methods: {

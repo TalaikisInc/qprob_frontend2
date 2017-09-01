@@ -40,6 +40,7 @@
                         <div v-else>
                           <span v-html="post.content"></span>
                         </div>
+                        <ad-component></ad-component>
                         <a :href="post.url"><button class="btn btn-primary pull-right">Read more...</button></a>
                         <div class="post-inner-image">
                           <social-sharing :url="baseUrl + post.slug + '/'" :title="post.title"></social-sharing>
@@ -100,7 +101,7 @@ export default {
         return { post: posts.data[0], tags: tags.data }
       }))
       .catch((e) => {
-        error({ statusCode: 404, message: 'This post not found.' })
+        error({ statusCode: 404, message: 'This post not found. ' + e })
       })
   },
   components: {

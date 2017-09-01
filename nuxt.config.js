@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
 const popular = '/' + process.env.KEYWORD + '/popular/'
@@ -8,6 +9,11 @@ const img_url = 'https://' + process.env.WEB_HOST + '/'
 module.exports = {
   head: {
     title: 'QProb',
+    manifest: {
+      name: process.env.SITE_NAME,
+      short_name: 'QProb',
+      lang: 'en'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -20,7 +26,8 @@ module.exports = {
       { src: '/js/vue-social-sharing.min.js' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Space+Mono' }
     ]
   },
   css: [
@@ -33,7 +40,13 @@ module.exports = {
     '~plugins/axios.js'
   ],
   modules: [
-    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 12 }],
+    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 }],
+    ['@nuxtjs/google-analytics', { ua: process.env.GOOGLE_ANALYTICS }],
+    ['@nuxtjs/google-tag-manager', { id: process.env.GTM }],
+    '@nuxtjs/icon',
+    '@nuxtjs/meta',
+    '@nuxtjs/workbox',
+    '@nuxtjs/manifest'
   ],
   env: {
     baseUrl: 'http://localhost:3000/',

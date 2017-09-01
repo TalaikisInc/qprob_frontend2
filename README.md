@@ -9,9 +9,10 @@ where QPob on Django/ Python acts as backend, Golang as an intermediate through 
 
 * [qprob_frontend](https://github.com/xenu256/qprob_frontend) (pure Vue.js)
 
-## Status
+## Demo
 
-In dev.
+* [Technology news](https://parameterless.com)
+* ...
 
 ## Build Setup
 

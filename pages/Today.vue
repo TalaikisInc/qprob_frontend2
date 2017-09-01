@@ -96,7 +96,7 @@ export default {
       return chunk(this.posts, 2)
     },
     calcPages () {
-      const pages = Math.floor(this.posts[0].total_posts / 20) + 1
+      const pages = Math.floor(this.posts[0].total_posts / 20)
       return pages <= 250 ? pages : 250
     }
   },

@@ -1,6 +1,7 @@
 <template>
 <div class="tr-section tr-widget">
     <div class="widget-title">
+    <br />
         <span>Recent articles</span>
     </div>
     <ul class="medium-post-list">
@@ -14,6 +15,10 @@
 				    </h2>
 			    </div>
 		    </li>
+        <li class="tr-post">
+        <!-- <calendar-component></calendar-component> -->
+        <a href="appUrl"><img :src="imgBaseUrl + 'uploads/screenshots/' + siteFolder + '.png'" alt="Get our app"></a>
+        </li>
 	  </ul>
 </div>
 </template>
@@ -27,7 +32,10 @@ export default {
     return {
       posts: this.posts,
       baseUrl: process.env.baseUrl,
-      keyword: process.env.KEYWORD
+      imgBaseUrl: process.env.imgBaseUrl,
+      keyword: process.env.KEYWORD,
+      siteFolder: process.env.SITE_FOLDER,
+      appUrl: 'https://play.google.com/store/apps/details?id=talaikis.qprob.' + process.env.SITE_FOLDER
     }
   },
   methods: {
@@ -45,4 +53,5 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+</style>
