@@ -1,4 +1,5 @@
 require('dotenv').config()
+// {path: '../.env'}
 
 const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
@@ -50,7 +51,7 @@ module.exports = {
   ],
   env: {
     baseUrl: 'http://localhost:3000/',
-    logoAlt: '',
+    logoAlt: process.env.SITE_NAME,
     siteName: process.env.SITE_NAME,
     imgBaseUrl: img_url,
     apiUrl: api_url,

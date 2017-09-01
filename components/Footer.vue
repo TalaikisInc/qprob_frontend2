@@ -35,7 +35,7 @@
             <div class="container">
                 <div class="footer-bottom-content">
                     <div class="footer-logo">
-                        <a :href="baseUrl"><img class="img-responsive" src="~/assets/logo/stock_market.png" :alt="logoAlt"></a>
+                        <a :href="baseUrl"><img class="img-responsive" src="~/assets/logo/qprob.png" :alt="logoAlt"></a>
                     </div>
                     <p><a :href="'https://twitter.com/' + twHandle"><i class="fa fa-twitter"></i></a>&nbsp;
                     <a :href="'https://www.facebook.com/' + fbHandle"><i class="fa fa-facebook"></i></a>&nbsp;

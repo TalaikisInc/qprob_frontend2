@@ -4,4 +4,3 @@ npm-debug.log
 dist/
 static/sw.js
 static/workbox-sw*.jss
-.env

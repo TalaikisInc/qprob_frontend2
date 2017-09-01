@@ -10,7 +10,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a :href="baseUrl"><img class="img-responsive header-logo" src="~/assets/logo/stock_market.png" :alt="logoAlt"></a>
+                        <a :href="baseUrl"><img class="img-responsive header-logo" src="~/assets/logo/qprob.png" :alt="logoAlt"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbar-collapse">
