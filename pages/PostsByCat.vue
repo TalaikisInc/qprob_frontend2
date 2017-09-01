@@ -8,7 +8,7 @@
             <ad-component></ad-component>
 
           <div class="tr-section bg-transparent">
-            <h1>{{ category | capFirst }}<span v-if="page > 0">, page {{ page }}</span></h1>
+            <h1>{{ posts[0].category_id.Title | capFirst }}<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
               <div class="col-md-6 medium-post" v-for="post in chunk">
                 <div class="tr-post">
