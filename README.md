@@ -5,14 +5,19 @@ improve perforrmance and saving system resources,
 where QPob on Django/ Python acts as backend, Golang as an intermediate through REST API 
 (=[qprob_goapi](https://github.com/xenu256/qprob_goapi)) and Vue.js/ Nuxt.js as a frontend (this one).
 
-## V1
+## v1
 
 * [qprob_frontend](https://github.com/xenu256/qprob_frontend) (pure Vue.js)
 
-## Demo
+## Demo(s)
 
 * [Technology news](https://parameterless.com)
-* ...
+* [Quantitative trading](https://qprob.com/)
+* [Stock market](https://stckmrktnws.com)
+* [Business news](https://bsnssnws.com/)
+* [Entrepreneurship news](https://entreprnrnws.com/)
+* [Real estate investing](https://realestenews.com/)
+* [Insurance news](https://webdnl.com/)
 
 ## Build Setup
 
