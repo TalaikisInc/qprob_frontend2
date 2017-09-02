@@ -95,9 +95,9 @@ export default {
     }
   },
   asyncData ({ req, params, error }) {
-    return axios.all([
-      axios.get('/post/' + params.postSlug + '/'), axios.get('/post_tags/' + params.postSlug + '/'), axios.get('/post_hit/' + params.postSlug + '/')])
-      .then(axios.spread(function (posts, tags, hit) {
+    return axios.all([axios.get('/post/' + params.postSlug + '/'),
+      axios.get('/post_tags/' + params.postSlug + '/')])
+      .then(axios.spread(function (posts, tags) {
         return { post: posts.data[0], tags: tags.data }
       }))
       .catch((e) => {
