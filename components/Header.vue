@@ -82,6 +82,8 @@ export default {
     fetchData () {
       axios.get('/all_cats/').then(response => {
         this.categories = response.data
+      }).catch(e => {
+        console.log(e)
       })
     }
   },

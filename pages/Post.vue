@@ -101,7 +101,7 @@ export default {
         return { post: posts.data[0], tags: tags.data }
       }))
       .catch((e) => {
-        error({ statusCode: 404, message: 'This post not found. ' + e })
+        error({ statusCode: 500, message: e })
       })
   },
   components: {

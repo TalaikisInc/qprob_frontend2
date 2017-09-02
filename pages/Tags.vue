@@ -56,6 +56,9 @@ export default {
       .then((response) => {
         return { tags: response.data }
       })
+      .catch((e) => {
+        error({ statusCode: 500, message: e })
+      })
   },
   computed: {
     chunkPosts () {

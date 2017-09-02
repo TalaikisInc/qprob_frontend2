@@ -47,6 +47,9 @@ export default {
       .then((response) => {
         return { data: response.data }
       })
+      .catch((e) => {
+        error({ statusCode: 500, message: e })
+      })
   },
   components: {
     'header-component': Header,

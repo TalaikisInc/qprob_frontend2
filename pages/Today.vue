@@ -83,6 +83,9 @@ export default {
       .then((response) => {
         return { posts: response.data, page: Number(params.page) || 0 }
       })
+      .catch((e) => {
+        error({ statusCode: 500, message: e })
+      })
   },
   components: {
     'header-component': Header,
