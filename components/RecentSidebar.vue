@@ -31,8 +31,8 @@ export default {
   data () {
     return {
       posts: this.posts,
-      baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl,
+      baseUrl: process.env.BASE_URL,
+      imgBaseUrl: process.env.IMG_URLL,
       keyword: process.env.KEYWORD,
       siteFolder: process.env.SITE_FOLDER,
       appUrl: 'https://play.google.com/store/apps/details?id=talaikis.qprob.' + process.env.SITE_FOLDER

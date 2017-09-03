@@ -48,10 +48,10 @@ export default {
   data () {
     return {
       tags: [],
-      baseUrl: process.env.baseUrl
+      baseUrl: process.env.BSE_URL
     }
   },
-  asyncData ({ req, params }) {
+  asyncData ({ req, params, error }) {
     return axios.get('/top_tags/')
       .then((response) => {
         return { tags: response.data }

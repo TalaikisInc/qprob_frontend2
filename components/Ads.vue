@@ -16,9 +16,8 @@ export default {
   name: 'adsComp',
   data () {
     return {
-      imgBaseUrl: process.env.imgBaseUrl,
-      adClient: process.env.adClient,
-      adSlot: process.env.adSlot
+      adClient: process.env.ADSENSE_AD_CLIENT,
+      adSlot: process.env.ADSENSE_AD_SLOT
     }
   },
   components: {

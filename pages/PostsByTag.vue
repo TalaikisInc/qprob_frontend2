@@ -71,15 +71,15 @@ export default {
   data () {
     return {
       posts: [],
-      baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName,
+      baseUrl: process.env.BASE_URL,
+      imgBaseUrl: process.env.IMG_URL,
+      title: process.env.SITE_NAME,
       tag: null,
       page: null,
       type: 0
     }
   },
-  asyncData ({ req, params }) {
+  asyncData ({ req, params, error }) {
     return axios.get('/tag/' + params.tagSlug + '/' + (Number(params.page) || '0') + '/')
       .then((response) => {
         return { posts: response.data, tag: params.tagSlug, page: Number(params.page) || 0 }

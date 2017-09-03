@@ -1,11 +1,8 @@
 require('dotenv').config()
-// {path: '../.env'}
 
 const tags = '/' + process.env.KEYWORD + '/tags/'
 const sentiment = '/' + process.env.KEYWORD + '/sentiment/'
 const popular = '/' + process.env.KEYWORD + '/popular/'
-const api_url = 'https://api.' + process.env.WEB_HOST + '/v2.0'
-const baseUrl = 'https://' + process.env.WEB_HOST + '/'
 
 module.exports = {
   head: {
@@ -40,6 +37,12 @@ module.exports = {
     '~plugins/filters.js',
     '~plugins/axios.js'
   ],
+  env: {
+    API_URL: process.env.API_URL,
+    BASE_URL: process.env.BASE_URL,
+    IMG_URL: process.env.IMG_URL,
+    SITE_NAME: process.env.SITE_NAME
+  },
   modules: [
     ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 }],
     ['@nuxtjs/google-analytics', { ua: process.env.GOOGLE_ANALYTICS }],
@@ -49,18 +52,6 @@ module.exports = {
     '@nuxtjs/workbox',
     '@nuxtjs/manifest'
   ],
-  env: {
-    baseUrl: baseUrl,
-    logoAlt: process.env.SITE_NAME,
-    siteName: process.env.SITE_NAME,
-    imgBaseUrl: baseUrl,
-    apiUrl: api_url,
-    twHandle: process.env.TWITTER_HANDLE,
-    fbHandle: process.env.FACEBOOK_HANDLE,
-    disqusID: process.env.SHORT_SITE_NAME,
-    adClient: 'ca-pub-2578395398126606',
-    adSlot: '2747813439'
-  },
   router: {
     extendRoutes (routes, resolve) {
       routes.push(

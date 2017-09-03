@@ -27,9 +27,9 @@ export default {
   name: 'errorPage',
   data () {
     return {
-      baseUrl: process.env.baseUrl,
-      logoUrl: process.env.logoUrl,
-      logoAlt: process.env.logoAlt
+      baseUrl: process.env.BASE_URL,
+      logoUrl: process.env.IMG_URL,
+      logoAlt: process.env.SITE_NAME
     }
   },
   components: {

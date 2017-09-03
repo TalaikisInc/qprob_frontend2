@@ -61,14 +61,13 @@ export default {
     return {
       tags: this.tags,
       categories: this.categories,
-      baseUrl: process.env.baseUrl,
-      rssUrl: process.env.apiUrl.slice(0, -4) + 'feed/',
-      logoAlt: process.env.logoAlt,
-      logo: process.env.logo,
+      baseUrl: process.env.BASE_URL,
+      rssUrl: process.env.API_URL.slice(0, -4) + 'feed/',
+      logoAlt: process.env.SITE_NAME,
       keyword: process.env.KEYWORD,
-      twHandle: process.env.twHandle,
-      siteName: process.env.siteName,
-      fbHandle: process.env.fbHandle
+      twHandle: process.env.TWITTER_HANDLE,
+      siteName: process.env.SITE_NAME,
+      fbHandle: process.env.FACEBOOK_HANDLE
     }
   },
   methods: {

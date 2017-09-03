@@ -37,12 +37,12 @@ export default {
     return {
       sentiment: [],
       data: null,
-      baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName
+      baseUrl: process.env.BASE_URL,
+      imgBaseUrl: process.env.IMG_URL,
+      title: process.env.SITE_NAME
     }
   },
-  asyncData ({ req, params }) {
+  asyncData ({ req, params, error }) {
     return axios.get('/sentiment/')
       .then((response) => {
         return { data: response.data }

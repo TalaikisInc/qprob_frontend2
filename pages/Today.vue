@@ -71,14 +71,14 @@ export default {
   data () {
     return {
       posts: [],
-      baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl,
-      title: process.env.siteName,
+      baseUrl: process.env.BASE_URL,
+      imgBaseUrl: process.env.IMG_UR,
+      title: process.env.SITE_NAME,
       page: null,
       type: 2
     }
   },
-  asyncData ({ req, params }) {
+  asyncData ({ req, params, error }) {
     return axios.get('/today/' + (Number(params.page) || '0') + '/')
       .then((response) => {
         return { posts: response.data, page: Number(params.page) || 0 }

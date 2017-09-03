@@ -72,9 +72,9 @@ export default {
   data () {
     return {
       categories: this.categories,
-      baseUrl: process.env.baseUrl,
-      logoAlt: process.env.logoAlt,
-      imgBaseUrl: process.env.imgBaseUrl,
+      baseUrl: process.env.BASE_URL,
+      logoAlt: process.env.SITE_NAME,
+      imgBaseUrl: process.env.IMG_URLL,
       keyword: process.env.KEYWORD
     }
   },

@@ -88,10 +88,10 @@ export default {
     return {
       post: null,
       tags: [],
-      baseUrl: process.env.baseUrl,
-      imgBaseUrl: process.env.imgBaseUrl,
-      disqusID: process.env.disqusID,
-      title: process.env.siteName
+      baseUrl: process.env.BASE_URL,
+      imgBaseUrl: process.env.IMG_URL,
+      disqusID: process.env.DISQUS,
+      title: process.env.SITE_NAME
     }
   },
   asyncData ({ req, params, error }) {
