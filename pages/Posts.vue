@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="tr-content">
-          <ad-component :type="0"></ad-component>
+          <ad-component></ad-component>
           <div class="tr-section bg-transparent">
             <h1>{{ title }}<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
@@ -31,7 +31,7 @@
                         <h2 class="entry-title">
                         <a :href="baseUrl+post.slug+'/'">{{ post.title }}</a>&nbsp;
                         <div v-bind:class="[(post.sentiment >= 0) ? 'sentiment-pos' : 'sentiment-neg']" v-if="post.sentiment">[{{ post.sentiment }}]</div></h2>
-                        <p c-if="post.summary">{{ post.summary }}</p>
+                        <p v-if="post.summary">{{ post.summary }}</p>
                   </div>
                 </div>
               </div>

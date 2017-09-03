@@ -74,8 +74,7 @@ export default {
       categories: this.categories,
       baseUrl: process.env.BASE_URL,
       logoAlt: process.env.SITE_NAME,
-      imgBaseUrl: process.env.IMG_URLL,
-      keyword: process.env.KEYWORD
+      imgBaseUrl: process.env.IMG_URLL
     }
   },
   methods: {

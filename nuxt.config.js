@@ -20,7 +20,6 @@ module.exports = {
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
       { src: '/js/jquery.min.js' },
       { src: '/js/bootstrap.min.js' },
-      { src: '/js/main.js' },
       { src: '/js/vue-social-sharing.min.js' }
     ],
     link: [
@@ -41,7 +40,12 @@ module.exports = {
     API_URL: process.env.API_URL,
     BASE_URL: process.env.BASE_URL,
     IMG_URL: process.env.IMG_URL,
-    SITE_NAME: process.env.SITE_NAME
+    SITE_NAME: process.env.SITE_NAME,
+    ADSENSE_AD_CLIENT: process.env.ADSENSE_AD_CLIENT,
+    ADSENSE_AD_SLOT: process.env.ADSENSE_AD_SLOT,
+    DISQUS: process.env.DISQUS,
+    TWITTER_HANDLE: process.env.TWITTER_HANDLE,
+    FACEBOOK_HANDLE: process.env.FACEBOOK_HANDLE
   },
   modules: [
     ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 * 24 }],
