@@ -5,7 +5,7 @@
             <div class="tr-section tr-section-padding">
                 <div class="error-page-content">
                     <div class="logo text-center">
-                        <a class="navbar-brand" :href="baseUrl"><img class="img-responsive" v-bind:src="baseUrl+logoUrl" v-bind:alt="logoAlt"></a>
+                        <a class="navbar-brand" :href="baseUrl"><img class="img-responsive" src="~/assets/logo/qprob.png" :alt="logoAlt"></a>
                     </div>
                     <div class="not-found">
                         <h1>404</h1>
@@ -28,7 +28,6 @@ export default {
   data () {
     return {
       baseUrl: process.env.BASE_URL,
-      logoUrl: process.env.IMG_URL,
       logoAlt: process.env.SITE_NAME
     }
   },
