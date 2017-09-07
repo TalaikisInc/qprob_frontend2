@@ -18,7 +18,7 @@
                     </div>
                   </div>
                   <div class="post-content">
-                    <div v-bind:class="[(post.image) ? 'crop' : 'crop-no-img']">
+                    <div :class="[(post.image) ? 'crop' : 'crop-no-img']">
                           <a :href="baseUrl+'/source/'+post.category_id.Slug+'/'" v-if="post.category_id.Thumbnail">
                           <img class="img-responsive circle-img" :src="imgBaseUrl+post.category_id.Thumbnail" :alt="post.category_id.Title"></a>
                         </div>
@@ -70,7 +70,7 @@ export default {
     return {
       posts: [],
       baseUrl: process.env.BASE_URL,
-      imgBaseUrl: process.env.IMG_URLL,
+      imgBaseUrl: process.env.IMG_URL,
       title: process.env.SITE_NAME,
       page: null,
       type: 4
