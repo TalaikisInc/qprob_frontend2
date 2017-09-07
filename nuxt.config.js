@@ -79,7 +79,7 @@ module.exports = {
   },
   loading: '~/components/Loading.vue',
   build: {
-    analyze: true,
+    analyze: false,
     extractCSS: true,
     vendor: ['axios', 'moment'],
     extend (config, ctx) {
