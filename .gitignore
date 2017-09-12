@@ -5,3 +5,6 @@ dist/
 static/sw.js
 static/workbox-sw*.jss
 .env
+static/workbox-sw.prod.v1.3.0.js
+static/sw.js
+static/workbox-sw.prod.v1.3.0.js.map
