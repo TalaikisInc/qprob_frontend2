@@ -18,9 +18,9 @@
                         <ul class="navbar-nav">
                             <li><a :href="baseUrl + 'today/'"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today</a></li>
                             <li v-for="cat in categories">
-                                <a :href="baseUrl+'source/'+cat.slug+'/'" :title="cat.title">
+                                <a :href="baseUrl+'source/' + cat.slug + '/'" :title="cat.title">
                                 <div v-if="cat.thumbnail">
-                                    <img class="img-responsive img-circle menuCat" :src="imgBaseUrl+cat.thumbnail" />
+                                    <img class="img-responsive img-circle menuCat" :src="imgBaseUrl + cat.thumbnail" />
                                 </div>
                                 <div v-else>
                                     <i class="fa fa-list" aria-hidden="true"></i>
@@ -74,7 +74,7 @@ export default {
       categories: this.categories,
       baseUrl: process.env.BASE_URL,
       logoAlt: process.env.SITE_NAME,
-      imgBaseUrl: process.env.IMG_URLL
+      imgBaseUrl: process.env.IMG_URL
     }
   },
   methods: {
