@@ -49,6 +49,15 @@
                                     <li><a href="https://quantrade.co.uk/" alt="Free trading signals "><i class="fa fa-signal" aria-hidden="true"></i>Trading signals</a></li>
                                 </ul>
                             </li>
+                            
+                            <li class="active dropdown"><a data-toggle="dropdown" href="#">
+                            <i class="fa fa-signal" aria-hidden="true"></i>Entertainment</a>
+                                <ul class="sub-menu">
+                                    <li class="active"><a href="https://celebritytodaynews.com/" alt="Celebrities news">
+                                    <i class="fa fa-list" aria-hidden="true"></i>Celebrities news</a></li>
+                                </ul>
+                            </li>
+
                             <li><a href="https://parameterless.com/" alt="Daily technology news"><i class="fa fa-cloud" aria-hidden="true"></i>Technology news</a></li>
                             <li><a href="https://webdnl.com/" alt="Daily insurance news"><i class="fa fa-shield" aria-hidden="true"></i>Insurance news</a></li>
                             <!--
