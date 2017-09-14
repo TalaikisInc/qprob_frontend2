@@ -1,6 +1,5 @@
 <template>
 <div>
-  <header-component></header-component>
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-8">
@@ -31,7 +30,6 @@
       </div>
     </div>
   </div>
-<footer-component></footer-component>
 </div>
 </template>
 
@@ -39,8 +37,6 @@
 import axios from 'axios'
 import chunk from '../plugins/chunk'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
 import Popular from '../components/PopularSidebar.vue'
 import Ads from '../components/Ads.vue'
 
@@ -66,8 +62,6 @@ export default {
     }
   },
   components: {
-    'header-component': Header,
-    'footer-component': Footer,
     'popular-posts': Popular,
     'ad-component': Ads
   },

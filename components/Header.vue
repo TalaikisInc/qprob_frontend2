@@ -57,7 +57,6 @@
                                     <i class="fa fa-list" aria-hidden="true"></i>Celebrities news</a></li>
                                 </ul>
                             </li>
-
                             <li><a href="https://parameterless.com/" alt="Daily technology news"><i class="fa fa-cloud" aria-hidden="true"></i>Technology news</a></li>
                             <li><a href="https://webdnl.com/" alt="Daily insurance news"><i class="fa fa-shield" aria-hidden="true"></i>Insurance news</a></li>
                             <!--

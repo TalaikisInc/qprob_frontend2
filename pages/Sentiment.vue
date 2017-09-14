@@ -1,6 +1,5 @@
 <template>
 <div>
-  <header-component></header-component>
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-12">
@@ -19,15 +18,12 @@
       </div>
     </div>
   </div>
-<footer-component></footer-component>
 </div>
 </template>
 
 <script>
 import SentimentChart from '../plugins/chart.js'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
 import Ads from '../components/Ads.vue'
 
 import axios from 'axios'
@@ -52,8 +48,6 @@ export default {
       })
   },
   components: {
-    'header-component': Header,
-    'footer-component': Footer,
     'ad-component': Ads,
     'line-chart': SentimentChart
   },

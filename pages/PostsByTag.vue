@@ -1,6 +1,5 @@
 <template>
 <div>
-  <header-component></header-component>
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-8">
@@ -52,7 +51,6 @@
       </div>
     </div>
   </div>
-<footer-component></footer-component>
 </div>
 </template>
 
@@ -89,8 +87,6 @@ export default {
       })
   },
   components: {
-    'header-component': Header,
-    'footer-component': Footer,
     'popular-posts': Popular,
     'paginator-component': Paginator,
     'ad-component': Ads

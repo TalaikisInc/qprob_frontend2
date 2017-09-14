@@ -1,12 +1,10 @@
 <template>
 <div>
-  <header-component></header-component>
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-8">
           <div class="tr-content">
             <ad-component></ad-component>
-
           <div class="tr-section bg-transparent">
             <h1>{{ posts[0].category_id.Title | capFirst }}<span v-if="page > 0">, page {{ page }}</span></h1>
             <div class="row" v-for="chunk in chunkPosts">
@@ -52,15 +50,12 @@
       </div>
     </div>
   </div>
-<footer-component></footer-component>
 </div>
 </template>
 
 <script>
 import chunk from '../plugins/chunk'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
 import Paginator from '../components/Paginator.vue'
 import Popular from '../components/PopularSidebar.vue'
 import Ads from '../components/Ads.vue'
@@ -89,8 +84,6 @@ export default {
       })
   },
   components: {
-    'header-component': Header,
-    'footer-component': Footer,
     'popular-posts': Popular,
     'paginator-component': Paginator,
     'ad-component': Ads
