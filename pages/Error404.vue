@@ -1,6 +1,5 @@
 <template>
 <div>
-    <header-component></header-component>
         <div class="error-page text-center">
             <div class="tr-section tr-section-padding">
                 <div class="error-page-content">
@@ -15,14 +14,10 @@
                 </div>
             </div>
         </div>
-    <footer-component></footer-component>
 </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
-
 export default {
   name: 'errorPage',
   data () {
@@ -30,10 +25,6 @@ export default {
       baseUrl: process.env.BASE_URL,
       logoAlt: process.env.SITE_NAME
     }
-  },
-  components: {
-    'header-component': Header,
-    'footer-component': Footer
   }
 }
 </script>
