@@ -12,10 +12,11 @@ import Footer from '../components/Footer.vue'
 
 export default {
   data () {
-    return { },
+    return { }
+  },
   components: {
     'header-component': Header,
-    'footer-component': Footer,
+    'footer-component': Footer
   }
 }
 </script>

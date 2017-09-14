@@ -57,8 +57,6 @@
 <script>
 import chunk from '../plugins/chunk'
 
-import Header from '../components/Header.vue'
-import Footer from '../components/Footer.vue'
 import Paginator from '../components/Paginator.vue'
 import Popular from '../components/PopularSidebar.vue'
 import Ads from '../components/Ads.vue'
