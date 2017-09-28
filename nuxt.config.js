@@ -16,6 +16,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
+    mode: 'spa',
     script: [
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
       { src: '/js/jquery.min.js' },

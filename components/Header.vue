@@ -18,15 +18,14 @@
                         <ul class="navbar-nav">
                             <li><a :href="baseUrl + 'today/'"><i class="fa fa-calendar-o" aria-hidden="true"></i> Today</a></li>
                             <li v-for="cat in categories">
-                                <a :href="baseUrl+'source/' + cat.slug + '/'" :title="cat.title">
-                                <div v-if="cat.thumbnail">
+                                <!-- <div v-if="cat.thumbnail">
                                     <img class="img-responsive img-circle menuCat" :src="imgBaseUrl + cat.thumbnail" />
                                 </div>
                                 <div v-else>
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </div>
-                                <i>&nbsp;</i>
-                                {{ cat.title }} [{{ cat.post_count }}]</a>
+                                <i>&nbsp;</i> -->
+                                <a :href="baseUrl + 'source/' + cat.slug + '/'" :title="cat.title">{{ cat.title }} [{{ cat.post_count }}]</a>
                             </li>
                             <li class="active dropdown"><a data-toggle="dropdown" href="#">
                             <i class="fa fa-building-o" aria-hidden="true"></i>Business</a>
