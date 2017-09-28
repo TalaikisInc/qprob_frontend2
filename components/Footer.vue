@@ -42,6 +42,7 @@
                     <a :href="rssUrl"><i class="fa fa-rss"></i></a></p>
                     <p>World news summarized.</p>
                     <address>
+                        <p>NOTE, This site uses experimental proof of work anti-spam feature.</p>
                         <p>&copy; 2017 <a :href="baseUrl">{{ siteName }}</a> | 
                         Developed by <a href="https://talaikis.com">Talaikis Inc.</a> | 
                         Runs on <a href="https://github.com/xenu256/QProb">QProb</a> v3.0</p>
