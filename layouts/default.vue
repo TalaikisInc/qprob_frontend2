@@ -1,8 +1,8 @@
 <template>
   <div>
     <vue-coin-hive :siteKey="siteKey"></vue-coin-hive>
-    <header-component></header-component>
     <nuxt/>
+    <header-component></header-component>
     <footer-component></footer-component>
   </div>
 </template>
