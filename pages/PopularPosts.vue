@@ -24,7 +24,7 @@
                         </div>
                         <div class="entry-meta">
                           <ul>
-                            <li>By <a :href="baseUrl+'source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
+                            <li>Source: <a :href="baseUrl+'source/'+post.category_id.Slug+'/'">{{ post.category_id.Title }}</a></li>
                             <li>{{ post.date | formatDate }}</li>
                             <li>Hits: {{ post.hits }}</li>
                           </ul>
