@@ -34,7 +34,6 @@
     "moment": "^2.18.1",
     "nuxt": "^1.0.0-rc8",
     "vue-chartjs": "^2.8.2",
-    "vue-coin-hive": "0.0.7",
     "vue-disqus": "^2.0.3",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.0.4",

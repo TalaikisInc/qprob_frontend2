@@ -10,7 +10,6 @@
 <script>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
-var VueCoinHive = require('vue-coin-hive')
 
 export default {
   data () {
@@ -20,8 +19,7 @@ export default {
   },
   components: {
     'header-component': Header,
-    'footer-component': Footer,
-    'vue-coin-hive': VueCoinHive
+    'footer-component': Footer
   }
 }
 </script>
