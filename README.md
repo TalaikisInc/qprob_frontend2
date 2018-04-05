@@ -12,8 +12,8 @@ where QPob on Django/ Python acts as backend, Golang as an intermediate through 
 ## Demo(s)
 
 * [Technology news](https://parameterless.com)
-* [Quantitative trading](https://qprob.com/)
-* [Stock market](https://stckmrktnws.com)
+* [Quantitative trading](https://tradingnews.talaikis.com/)
+* [Stock market](https://stockmarketnews.talaikis.com)
 * [Business news](https://bsnssnws.com/)
 * [Entrepreneurship news](https://entreprnrnws.com/)
 * [Real estate investing](https://realestenews.com/)
